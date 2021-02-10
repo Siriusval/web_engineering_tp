@@ -1,0 +1,21 @@
+<?import zk.gradle.vm.MyViewModel?>
+<zk>
+	<div viewModel="@id('vm') @init('MyViewModel')" validationMessages="@id('vmsgs')">
+		<grid model="@load(vm.data)" >
+			<columns>
+				<column value="Artiste"/>
+				<column value="Pays"/>
+				<column value="Ville"/>
+				<column value="Année"/>
+				<column value="Edition"/>
+			</columns>
+			<rows>
+				<template name="model" var="item">
+					<row>
+						<label value="@load(vm.artist(item))"/>
+					</row>
+				</template>
+			</rows>
+		</grid>
+	</div>
+</zk>

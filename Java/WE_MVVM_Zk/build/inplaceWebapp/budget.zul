@@ -1,0 +1,50 @@
+<?import zk.gradle.vm.BudgetViewModel?>
+<?import zk.gradle.vm.PieBasicComposer?>
+<zk>
+	<div apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('BudgetViewModel')">
+		<div id="add-form">
+			<label value="@load(vm.instr)"/>
+			<grid style="border:0;" >
+				<columns>
+					<column width="100px"/>
+					<column width="300px"/>
+				</columns>
+				<rows>
+					<row>
+						<label value="@load(vm.intituleLabel)" />
+						<textbox id='intitule' value="@bind(vm.intituleTextbox)" />
+					</row>
+					<row>
+						<label value="@load(vm.descriptionLabel)"/>
+						<textbox id='description' value="@bind(vm.descriptionTextbox)"/>
+					</row>
+					<row>
+						<label value="@load(vm.valeurLabel)"/>
+						<textbox id='valeur' value="@bind(vm.valeurTextbox)"/>
+					</row>
+				</rows>
+			</grid>
+			<button label="Add" onClick='@command(BudgetViewModel.ADD_COMMAND)'/>
+		</div>
+		<separator height="100px"/>
+		<div id="budget-grid">
+			<grid id="budgetGrid" model="@bind(vm.budgetList)" width="400px" >
+				<columns>
+					<column label="Intitule" sort="auto"/>
+					<column label="Description" sort="auto"/>
+					<column label="Valeur" sort="auto"/>
+				</columns>
+				<template name="model" var="budget">
+						<row>
+							<label value="@bind(budget.intitule)"/>
+							<label value="@bind(budget.description)"/>
+							<label value="@bind(budget.valeur)"/>
+						</row>
+				</template>
+			</grid>
+		</div>
+		<window apply="PieBasicComposer">
+			<charts id="chart" type="pie" title="Browser market shares at a specific website, 2010" model="@bind(vm.pm)"/>
+		</window>
+	</div>
+</zk>

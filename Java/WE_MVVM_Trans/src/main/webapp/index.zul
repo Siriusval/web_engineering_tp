@@ -1,0 +1,25 @@
+<?import zk.gradle.vm.MyViewModel?>
+<zk>
+	<div viewModel="@id('vm') @init('MyViewModel')" validationMessages="@id('vmsgs')">
+		<grid model="@load(vm.data)" >
+			<columns>
+				<column label="Artiste" sort="auto"/>
+				<column label="Pays" sort="auto"/>
+				<column label="Ville" sort="auto"/>
+				<column label="Année" sort="auto"/>
+				<column label="Edition" sort="auto"/>
+			</columns>
+			<rows>
+				<template name="model" var="item">
+					<row>
+						<label value="${item.fields.artistes}"/>
+						<label value="${item.fields.origine_pays1}"/>
+						<label value="${item.fields.origine_ville1}"/>
+						<label value="${item.fields.annee}"/>
+						<label value="${item.fields.edition}"/>
+					</row>
+				</template>
+			</rows>
+		</grid>
+	</div>
+</zk>
