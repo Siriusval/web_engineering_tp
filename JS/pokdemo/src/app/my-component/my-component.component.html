@@ -1,0 +1,10 @@
+<select id="pokemon-select" [(ngModel)]="selectedValue">
+  <option value="">--Choose a pokemon--</option>
+  <option value="{{pokemon.id}}" *ngFor="let pokemon of listPokemon; index as i; first as isFirst" >{{pokemon.name}}</option>
+</select>
+
+<input id="filter" type="text" placeholder="Filter">
+<button id="submit" (click)="search()">Go!</button>
+
+<br/>
+<H1>{{selectedValue}}</H1>
