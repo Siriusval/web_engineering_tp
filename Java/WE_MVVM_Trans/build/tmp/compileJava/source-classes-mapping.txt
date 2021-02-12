@@ -1,4 +1,8 @@
+vm/filter/ArtistFilter.java
+ vm.filter.ArtistFilter
 data/TransDataset.java
  data.TransDataset
-zk/gradle/vm/MyViewModel.java
- zk.gradle.vm.MyViewModel
+data/pojo/Artist.java
+ data.pojo.Artist
+vm/FilterViewModel.java
+ vm.FilterViewModel

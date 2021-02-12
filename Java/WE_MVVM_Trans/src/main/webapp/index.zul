@@ -1,25 +1,66 @@
-<?import zk.gradle.vm.MyViewModel?>
+<!--
+VIEW
+Display the grid representing the artists that attended the festival transmusicales
+contains:
+- title
+- header for each column
+- filtering input
+- rows with name, country, city, year, edition
+- footer with number of results
+-->
+<?import vm.FilterViewModel?>
 <zk>
-	<div viewModel="@id('vm') @init('MyViewModel')" validationMessages="@id('vmsgs')">
-		<grid model="@load(vm.data)" >
+	<div viewModel="@id('vm') @init('FilterViewModel')">
+		<grid model="@load(vm.artistModel)" height="700px">
+			<auxhead>
+				<auxheader label="Programmation des Transmusicales" colspan="5" />
+			</auxhead>
+			<auxhead>
+				<auxheader colspan="1">
+					<span sclass="z-icon-filter"/>
+					<textbox instant="true" width="100px"
+							 value="@bind(vm.artistFilter.name)" onChange="@command('changeFilter')" />
+				</auxheader>
+				<auxheader colspan="1">
+					<span sclass="z-icon-filter"/>
+					<textbox instant="true" width="100px"
+							 value="@bind(vm.artistFilter.country)" onChange="@command('changeFilter')" />
+				</auxheader>
+				<auxheader colspan="1">
+					<span sclass="z-icon-filter"/>
+					<textbox instant="true" width="100px"
+							 value="@bind(vm.artistFilter.city)" onChange="@command('changeFilter')" />
+				</auxheader>
+				<auxheader colspan="1">
+					<span sclass="z-icon-filter"/>
+					<textbox instant="true" width="100px"
+							 value="@bind(vm.artistFilter.year)" onChange="@command('changeFilter')" />
+				</auxheader>
+				<auxheader colspan="1">
+					<span sclass="z-icon-filter"/>
+					<textbox instant="true" width="100px"
+							 value="@bind(vm.artistFilter.edition)" onChange="@command('changeFilter')" />
+				</auxheader>
+			</auxhead>
 			<columns>
-				<column label="Artiste" sort="auto"/>
-				<column label="Pays" sort="auto"/>
-				<column label="Ville" sort="auto"/>
-				<column label="Année" sort="auto"/>
-				<column label="Edition" sort="auto"/>
+				<column width="20%" label="Artiste" sort="auto(name)"/>
+				<column width="20%" label="Pays" sort="auto(country)"/>
+				<column width="20%" label="Ville" sort="auto(city)"/>
+				<column width="20%" label="Annee" sort="auto(year)"/>
+				<column width="20%" label="Edition" sort="auto(edition)"/>
 			</columns>
-			<rows>
-				<template name="model" var="item">
-					<row>
-						<label value="${item.fields.artistes}"/>
-						<label value="${item.fields.origine_pays1}"/>
-						<label value="${item.fields.origine_ville1}"/>
-						<label value="${item.fields.annee}"/>
-						<label value="${item.fields.edition}"/>
-					</row>
-				</template>
-			</rows>
+			<template name="model" var="item">
+				<row>
+					<label value="${item.name}"/>
+					<label value="${item.country}"/>
+					<label value="${item.city}"/>
+					<label value="${item.year}"/>
+					<label value="${item.edition}"/>
+				</row>
+			</template>
+			<foot>
+				<footer span="5" class="footer_right" label="@load(vm.footer)" />
+			</foot>
 		</grid>
 	</div>
 </zk>
