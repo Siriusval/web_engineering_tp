@@ -1,15 +1,20 @@
-#TP Completed
+---
+title: Zk Demo App  
+author: vhulot  
+date: 2021-01
+---
+
+# Zk Demo App
+
+Demo app in Java with Zk framework.  
+MVVM implementation with Form, Table & graph element.
+
+Exercise for University.
+
+## Preview
 
 ![alt-text](./localhost_8080_zk-gradle_budget.zul.png "Screenshot")
 
-
-
-# ZK Gradle
-
-
-[Setup for project](https://www.zkoss.org/wiki/ZK%20Installation%20Guide/Quick%20Start/Create%20and%20Run%20Your%20First%20ZK%20Application%20with%20Gradle)  
-
-Example ZK project using gradle
 
 ## Useful Build Commands
 
@@ -36,6 +41,3 @@ build war
 ```
 ./gradlew war
 ```
-
-## License
-* Demo Code - [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0)

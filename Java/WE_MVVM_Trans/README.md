@@ -1,23 +1,29 @@
-# Programmation des Transmusicales
+---
+title: MVVM_ZK_Transmusicales  
+author: vhulot  
+date: 2021-02
+---
 
-## Results
+# MVVM ZK Transmusicales
+
+Programming a java web app with Zk framework.
+
+Features :
+
+- Reads artists & festival data from .json.
+- Display results in an interactive table
+- Can sort and filter entries.
+
+Exercise for University.
+
+
+## Preview
+### Results
 ![](images/img.png)
 
-## Filtered Results
+### Filtered Results
 ![](images/img_1.png)
-
-
-
-
-
-
-
-### _Old ReadMe_ (Ignore the following)
-
-# ZK Gradle
-
-Example ZK project using gradle
-
+ 
 ## Useful Build Commands
 
 run jetty (using gretty)
@@ -43,6 +49,3 @@ build war
 ```
 ./gradlew war
 ```
-
-## License
-* Demo Code - [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0)
